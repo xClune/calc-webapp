@@ -3,7 +3,6 @@
 /* Header */
 
 /* Calculator Body */
-
 .boundary {
     display: flex;
     justify-content: center;
@@ -18,6 +17,8 @@
 
     background-color: lightseagreen;
     border-radius: 10px; 
+
+    box-shadow: 3px 3px darkgreen;
 }
 
 .shell {
@@ -31,8 +32,14 @@
     margin: 10px;
 }
 
+
 /* Display */
 .display {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+
     border: 2px solid grey;
     border-radius: 5px;
     background-color: lightgoldenrodyellow;
@@ -66,6 +73,13 @@ button {
     border: none;
     border-radius: 5px;
     margin: 10px;
-    box-shadow: 2px 2px grey;
+    box-shadow: 2px 5px grey;
     background-color: lightgrey;
+
+    cursor: pointer;
+}
+
+button:active {
+    transform: translateY(5px);
+    box-shadow: 0px 1px;
 }
