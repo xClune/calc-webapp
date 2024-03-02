@@ -184,6 +184,78 @@ eqButton.addEventListener('click', () => {
     } 
 })
 
+// keyboard events
+window.addEventListener('keydown', (event) => {
+    if (event.key === '1') {
+        newNumber(1);
+        updateDisplay();
+    } else if (event.key === '2') {
+        newNumber(2);
+        updateDisplay();
+    } else if (event.key === '3') {
+        newNumber(3);
+        updateDisplay();
+    } else if (event.key === '4') {
+        newNumber(4);
+        updateDisplay();
+    } else if (event.key === '5') {
+        newNumber(5);
+        updateDisplay();
+    } else if (event.key === '6') {
+        newNumber(6);
+        updateDisplay();
+    } else if (event.key === '7') {
+        newNumber(7);
+        updateDisplay();
+    } else if (event.key === '8') {
+        newNumber(8);
+        updateDisplay();
+    } else if (event.key === '9') {
+        newNumber(9);
+        updateDisplay();
+    } else if (event.key === '0') {
+        newNumber(0);
+        updateDisplay();
+    } else if (event.key === '+') {
+        newOp('+');
+        updateDisplay();
+    } else if (event.key === '-') {
+        newOp('-');
+        updateDisplay();
+    } else if (event.key === 'x') {
+        newOp('x');
+        updateDisplay();
+    } else if (event.key === '/') {
+        newOp('/');
+        updateDisplay();
+    } else if (event.key === 'Enter') {
+        if (equate(displayValue, secondValue, displayOp)){
+            displayValue = equate(displayValue, secondValue, displayOp);
+            displayToggle = false;
+            displayOp = '';
+            secondValue = 0;
+            updateDisplay();
+        } 
+    } else if (event.key === '.') {
+        if (!displayToggle){
+            tempDisplay = displayValue + '.';
+        } else {
+            tempDisplay = secondValue + '.';
+        }   
+        isDecimal = true;
+        updateDisplay();
+    } else if (event.key === 'c') {
+        clearDisplay();
+        updateDisplay();
+    } else if (event.key === 'Backspace') {
+        if (!displayToggle) {
+            displayValue = (displayValue - (displayValue % 10)) / 10;
+        } else {
+            secondValue = (secondValue - (secondValue % 10)) / 10;
+        }
+        updateDisplay();
+    }
+});
 
 // Number Buttons - potential loop here to create.. 
 seven.addEventListener('click', () => {
