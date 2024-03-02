@@ -1,20 +1,39 @@
-import { add, multiply, subtract, divide } from "./operations.js";
+import { equate, add, multiply, subtract, divide } from "./operations.js";
 
 // Display
 let numDisplay = document.querySelector('.num-display');
 let opsDisplay = document.querySelector('.ops-display');
 
+let displayToggle;
 let displayValue = 0;
-let secondValue;
+let secondValue = 0;
 let displayOp = '';
 
 function updateDisplay(){
-    numDisplay.innerText = displayValue;
-    opsDisplay.innerText = displayOp;
+    if (!displayToggle) {
+        numDisplay.innerText = displayValue;
+        opsDisplay.innerText = displayOp;
+    } else {
+        numDisplay.innerText = secondValue;
+        opsDisplay.innerText = displayOp;
+    }
+    
+}
+
+function toggleDisplay(){
+    if (!displayOp == '') {
+        displayToggle = 1;
+    }
 }
 
 function newNumber(n){
-    displayValue = (10 * displayValue) + n;
+    toggleDisplay();
+    if (!displayToggle) {
+        displayValue = (10 * displayValue) + n;
+    } else {
+        secondValue = (10 * secondValue) + n;
+    }
+    
 }
 
 function newOp(o){
@@ -23,7 +42,9 @@ function newOp(o){
 
 function clearDisplay(){
     displayValue = 0;
+    secondValue = 0;
     displayOp = '';
+    displayToggle = false;
 }
 
 function displayOff(){
@@ -45,6 +66,8 @@ let xSign = document.querySelector('.js-multiply-btn');
 let addSign = document.querySelector('.js-plus-btn');
 let subSign = document.querySelector('.js-sub-btn');
 let divSign = document.querySelector('.js-divide-btn');
+
+let eqButton = document.querySelector('.js-equal-btn');
 
 let seven = document.querySelector('.js-7-btn');
 let eight = document.querySelector('.js-8-btn');
@@ -91,6 +114,15 @@ subSign.addEventListener('click', () => {
 divSign.addEventListener('click', () => {
     newOp('/');
     updateDisplay();
+})
+
+eqButton.addEventListener('click', () => {
+    if (equate(displayValue, secondValue, displayOp)){
+        displayValue = equate(displayValue, secondValue, displayOp);
+    displayToggle = false;
+    displayOp = '';
+    updateDisplay();
+    } 
 })
 
 
