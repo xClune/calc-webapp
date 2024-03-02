@@ -12,6 +12,10 @@ let displayOp = '';
 let isDecimal = false;
 
 function updateDisplay(){
+    if (displayValue > 9999999 || secondValue > 9999999) {
+        numDisplay.innerText = 'ERR';
+        return;
+    }
 
     if (!displayToggle) {
         if (isDecimal) {
