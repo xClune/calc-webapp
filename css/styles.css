@@ -41,6 +41,8 @@
     border: 2px solid grey;
     border-radius: 5px;
     background-color: lightgoldenrodyellow;
+
+    font-family: 'Orbitron', 'sans-serif';
     
     flex: 2;
     height: 20%;
@@ -50,12 +52,20 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    
+    flex: 1;
+
+    font-size: 46px;
 }
 
 .ops-display {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+
+    align-items: flex-end;
+    flex: 1;
+    font-size: 20px;
 }
 
 
@@ -77,17 +87,35 @@
     height: 100%
 }
 
+.row-1 .btn {
+    background-color: lightcyan;
+}
+
+.div-btn, .x-btn,
+.sub-btn, #add-btn, .eq-btn {
+    background-color: darkorange;
+}
+
 button {
     flex: 1;
     text-align: center;
 
     border: none;
     border-radius: 5px;
-    margin: 10px;
+    margin: 4px;
     box-shadow: 2px 5px grey;
     background-color: lightgrey;
 
     cursor: pointer;
+}
+
+.zero-btn {
+    flex: 2.4;
+}
+
+.decimal-btn, 
+.eq-btn {
+    flex: 1;
 }
 
 button:active {

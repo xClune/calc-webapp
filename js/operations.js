@@ -12,7 +12,11 @@ export function subtract(a, b){
 }
 
 export function divide(a, b){
-    return a / b;
+    if (b === 0) {
+        return 'silly goose';
+    } else {
+        return (a / b).toFixed(4);
+    }   
 }
 
 export function equate(a, b, op){
